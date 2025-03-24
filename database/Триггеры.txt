@@ -1,0 +1,18 @@
+-- Автоматическое добавление писем в "Входящие" и "Отправленные"
+CREATE TRIGGER trigger_distribute_folders
+AFTER INSERT ON messages
+FOR EACH ROW
+EXECUTE FUNCTION distribute_message_folders();
+
+-- Функция пометки письма как "прочитанное"
+CREATE TRIGGER trigger_mark_as_read
+AFTER UPDATE ON message_status
+FOR EACH ROW
+WHEN (NEW.is_read = TRUE)
+EXECUTE FUNCTION mark_as_read();
+
+-- Функция перемещения в корзину
+CREATE TRIGGER trigger_move_to_trash
+BEFORE DELETE ON message_folders
+FOR EACH ROW
+EXECUTE FUNCTION move_to_trash();

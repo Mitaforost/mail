@@ -1,0 +1,48 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    sender_id INT NOT NULL,  -- Отправитель
+    receiver_id INT NOT NULL,  -- Получатель
+    subject VARCHAR(255),  -- Тема письма
+    body TEXT NOT NULL,  -- Текст письма
+    status VARCHAR(20) DEFAULT 'не просмотрено', -- просмотрено / не просмотрено
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE message_folders (
+    id SERIAL PRIMARY KEY,
+    message_id INT NOT NULL,
+    user_id INT NOT NULL,
+    folder VARCHAR(20) NOT NULL CHECK (folder IN ('входящие', 'отправленные', 'черновики', 'корзина', 'избранные')),
+    FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE attachments (
+    id SERIAL PRIMARY KEY,
+    message_id INT NOT NULL,
+    file_path VARCHAR(255) NOT NULL,  
+    file_type VARCHAR(50),
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE
+);
+
+CREATE TABLE message_status (
+    id SERIAL PRIMARY KEY,
+    message_id INT NOT NULL,
+    user_id INT NOT NULL,  
+    is_read BOOLEAN DEFAULT FALSE,
+    is_deleted BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

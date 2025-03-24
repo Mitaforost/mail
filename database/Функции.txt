@@ -1,0 +1,49 @@
+-- Автоматическое добавление писем в "Входящие" и "Отправленные"
+CREATE OR REPLACE FUNCTION distribute_message_folders()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Добавляем письмо в "Отправленные" для отправителя
+    INSERT INTO message_folders (message_id, user_id, folder)
+    VALUES (NEW.id, NEW.sender_id, 'отправленные');
+
+    -- Добавляем письмо в "Входящие" для получателя
+    INSERT INTO message_folders (message_id, user_id, folder)
+    VALUES (NEW.id, NEW.receiver_id, 'входящие');
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Функция пометки письма как "прочитанное"
+CREATE OR REPLACE FUNCTION mark_as_read()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE message_status 
+    SET is_read = TRUE 
+    WHERE message_id = NEW.message_id AND user_id = NEW.user_id;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Функция перемещения в корзину
+CREATE OR REPLACE FUNCTION move_to_trash()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE message_folders
+    SET folder = 'корзина'
+    WHERE message_id = OLD.message_id AND user_id = OLD.user_id;
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Функция получения количества непрочитанных писем
+CREATE OR REPLACE FUNCTION get_unread_count(p_user_id INT)
+RETURNS INT AS $$
+DECLARE unread_count INT;
+BEGIN
+    SELECT COUNT(*) INTO unread_count
+    FROM message_status
+    WHERE user_id = p_user_id AND is_read = FALSE;
+    RETURN unread_count;
+END;
+$$ LANGUAGE plpgsql;

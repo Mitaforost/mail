@@ -1,0 +1,13 @@
+-- Процедура очистки старых писем (архивация)
+
+CREATE OR REPLACE PROCEDURE archive_old_messages()
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE message_folders
+    SET folder = 'архив'
+    WHERE message_id IN (
+        SELECT id FROM messages WHERE sent_at < NOW() - INTERVAL '6 months'
+    );
+END;
+$$;
