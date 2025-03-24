@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Описание cайта">
+    <link rel="icon" href="/img/icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/img/icon/android-chrome-512x512.png">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Веб-приложение аптека</title>
+</head>
+
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <a href="index.html" class="header__home">
+                <h1>Веб-приложение аптека</h1>
+            </a>
+            <nav class="header__nav">
+                <a href="orders.html">Заказы</a>
+                <a href="products.html">Товары</a>
+                <a href="customers.html">Клиенты</a>
+                <a href="payments.html">Платежи</a>
+                <a href="employees.html">Сотрудники</a>
+            </nav>
+            <div class="header__user">
+                <p id="userInfo" class="header__status p1"></p>
+                <button id="logoutBtn" class="btn btn__exit" style="display: none;">Выйти</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="payments">
+        <div class="container">
+            <div class="payments__wrapper">
+                <h2 class="payments__title">Список платежей</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Номер заказа</th>
+                        <th>Сумма</th>
+                        <th>Дата платежа</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody id="paymentsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+<div id="popup" class="popup" style="display: none; margin: auto">
+    <div class="popup__content">
+        <h3>Редактирование платежа</h3>
+        <input type="hidden" id="editPaymentId">
+        <label>Номер заказа: <input type="number" id="editPaymentOrderId"></label>
+        <label>Сумма: <input type="number" id="editPaymentAmount"></label>
+        <label>Дата платежа: <input type="date" id="editPaymentDate"></label>
+        <div class="popup-actions">
+            <button id="saveEditPayment">Сохранить</button>
+            <button id="cancelEditPayment">Отмена</button>
+        </div>
+    </div>
+</div>
+<div id="addPaymentPopup" class="popup" style="display: none;">
+    <div class="popup__content">
+        <h3>Добавить новый платеж</h3>
+        <label>Номер заказа: <input type="number" id="newPaymentOrderId"></label>
+        <label>Сумма: <input type="number" id="newPaymentAmount"></label>
+        <label>Дата платежа: <input type="date" id="newPaymentDate"></label>
+        <div class="popup__actions">
+            <button id="savePayment" class="btn">Сохранить</button>
+            <button id="cancelAddPayment" class="btn">Отмена</button>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="footer__title">&copy; 2025 Веб-приложение аптека</p>
+    </div>
+</footer>
+
+<script src="js/payments.js"></script>
+</body>
+</html>

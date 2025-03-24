@@ -1,0 +1,1 @@
+npm install express body-parser cors sequelize pg pg-hstore dotenv

@@ -1,0 +1,36 @@
+-- 1. Добавляем пользователей
+INSERT INTO users (username, email, password) VALUES
+('Maksim', 'maksim007@gmail.com', 'Maksim'),
+('Nastya', 'nastya@gmail.com', 'Nastya'),
+('Lera', 'lera@gmail.com', 'Lera');
+
+-- 2. Добавляем сообщения (используем реальные ID пользователей)
+INSERT INTO messages (sender_id, receiver_id, subject, body, status) VALUES
+(1, 2, 'Привет!', 'Привет, Настя! Как дела?', 'не просмотрено'),
+(2, 1, 'RE: Привет!', 'Привет, Максим! Все хорошо. А у тебя?', 'не просмотрено'),
+(1, 3, 'Встреча', 'Давай встретимся завтра в 15:00.', 'не просмотрено'),
+(3, 1, 'RE: Встреча', 'Отлично, тогда до встречи!', 'не просмотрено');
+
+-- 3. Добавляем связи с папками
+INSERT INTO message_folders (message_id, user_id, folder) VALUES
+(1, 2, 'входящие'),
+(1, 1, 'отправленные'),
+(2, 1, 'входящие'),
+(2, 2, 'отправленные'),
+(3, 3, 'входящие'),
+(3, 1, 'отправленные'),
+(4, 1, 'входящие'),
+(4, 3, 'отправленные');
+
+-- 4. Добавляем вложения (убираем Windows-пути, используем корректные слэши)
+INSERT INTO attachments (message_id, file_path, file_type) VALUES
+(1, 'C:/Users/User/Desktop/1/1.jpg', 'image/jpg'),
+(2, 'C:/Users/User/Desktop/1/1.jpg', 'image/jpg'),
+(3, 'C:/Users/User/Desktop/1/1.jpg', 'image/jpg');
+
+-- 5. Добавляем статусы сообщений для пользователей
+INSERT INTO message_status (message_id, user_id, is_read, is_deleted) VALUES
+(1, 2, FALSE, FALSE),
+(2, 1, FALSE, FALSE),
+(3, 3, FALSE, FALSE),
+(4, 1, FALSE, FALSE);

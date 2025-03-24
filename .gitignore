@@ -1,0 +1,12 @@
+# PostgreSQL
+*.dump
+.env
+pgadmin/
+# Logs
+logs/
+*.log
+
+node_modules/
+src/
+
+.idea/
