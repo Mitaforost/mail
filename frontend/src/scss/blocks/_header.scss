@@ -1,0 +1,46 @@
+.header{
+  padding: 20px 0;
+  background-color: $header-bg;
+  &__home{
+    h1{
+      color: $main-color;
+      &:hover{
+        color: $success-color;
+      }
+    }
+  }
+  &__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__nav{
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    a{
+      color: $main-color;
+      &:hover{
+        color: $success-color;
+      }
+    }
+  }
+  &__user{
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+    align-items: center;
+    p{
+      font-size: 22px;
+      color: $main-color;
+    }
+  }
+  &__status{
+    color: $primary-color;
+  }
+  .btn__exit{
+    width: 100px;
+  }
+}

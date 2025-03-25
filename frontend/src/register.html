@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/head.html')
+<body>
+<main class="container">
+    <section class="auth-box">
+        <h1 class="auth-heading">Создание аккаунта</h1>
+        <form id="registerForm" class="form">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Имя" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Пароль" required>
+            </div>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+        <p class="auth-text">Уже есть аккаунт? <a href="login.html" class="auth-link">Войти</a></p>
+    </section>
+</main>
+@@include('html/footer.html')
+<script src="js/register.js"></script>
+</body>
+</html>

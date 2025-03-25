@@ -1,0 +1,98 @@
+.overview{
+  padding: 50px 0;
+  &__title{
+    display: flex;
+    justify-content: center;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+  &__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  &__item{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    transition: all .3s;
+    gap: 20px;
+    &:hover{
+      border: 2px solid $secondary-color;
+    }
+  }
+  &-item{
+    &__title{
+      text-align: center;
+      color: $secondary-color;
+    }
+    &__text{
+      line-height: 100%;
+    }
+    &__link{
+      margin-top: auto;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+.main {
+  padding: 20px 0;
+}
+
+.messages__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.messages__list {
+  list-style: none;
+  padding: 0;
+}
+
+.messages__list li {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.messages__list li:hover {
+  background-color: #f9f9f9;
+}
+.sidebar {
+  width: 250px;
+  background-color: $header-bg;
+  color: $main-color;
+  height: 100%;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar__nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar__nav li {
+  padding: 10px 20px;
+}
+
+.sidebar__nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.sidebar__nav a:hover {
+  background-color: #575757;
+}

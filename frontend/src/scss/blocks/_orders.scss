@@ -1,0 +1,34 @@
+.orders{
+  padding: 50px 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title{
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 30px;
+  }
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $background-light;
+    border-radius: 8px;
+    overflow: hidden;
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid $primary-color;
+    }
+
+    th {
+      background: $secondary-color;
+      color: $main-color;
+      font-weight: 600;
+    }
+
+  }
+}

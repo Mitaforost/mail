@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/head.html')
+<body>
+@@include('html/header.html')
+<div class="sidebar">
+    <nav class="sidebar__nav">
+        <ul>
+            <li><a href="inbox.html" class="btn">Входящие</a></li>
+            <li><a href="sent.html" class="btn">Отправленные</a></li>
+            <li><a href="drafts.html" class="btn">Черновики</a></li>
+            <li><a href="trash.html" class="btn">Корзина</a></li>
+            <li><a href="favorites.html" class="btn">Избранные</a></li>
+        </ul>
+    </nav>
+</div>
+<main class="main">
+    <div class="container">
+        <section class="messages">
+            <h2 class="messages__title">Сообщения</h2>
+            <ul class="messages__list">
+            </ul>
+        </section>
+    </div>
+</main>
+<div id="logoutPopup" class="popup">
+    <div class="popup__content">
+        <p>Вы уверены, что хотите выйти?</p>
+        <button id="confirmLogout">Да</button>
+        <button id="cancelLogout">Отмена</button>
+    </div>
+</div>
+@@include('html/footer.html')
+<script src="js/main.js"></script>
+</body>
+</html>

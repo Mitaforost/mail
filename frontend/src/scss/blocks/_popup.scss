@@ -1,0 +1,116 @@
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &__content {
+    margin: 150px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: $primary-color;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 500;
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.3s;
+
+        &:first-child {
+          background: $primary-color;
+          color: #fff;
+
+          &:hover {
+            background: darken($primary-color, 10%);
+          }
+        }
+
+        &:last-child {
+          background: #ccc;
+          color: #333;
+
+          &:hover {
+            background: darken(#ccc, 10%);
+          }
+        }
+
+        & + button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+#logoutPopup {
+  .popup__content {
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  #confirmLogout {
+    background-color: #e74c3c;
+    color: white;
+
+    &:hover {
+      background: darken(#e74c3c, 10%);
+    }
+  }
+
+  #cancelLogout {
+    background-color: #888;
+    color: white;
+
+    &:hover {
+      background: darken(#888, 10%);
+    }
+  }
+}

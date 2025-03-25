@@ -1,0 +1,11 @@
+.footer{
+  display: flex;
+  padding: 20px 0;
+  background-color: $header-bg;
+  align-items: center;
+  justify-content: center;
+  &__title{
+    font-size: 28px;
+    color: $main-color;
+  }
+}

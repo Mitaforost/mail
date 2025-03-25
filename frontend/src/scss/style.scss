@@ -1,0 +1,76 @@
+@import "normalize";
+@import "libs/fonts";
+@import "base/mixins";
+@import "base/variables";
+
+*,
+input,
+*::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.h1, h1 {
+  font-size: 38px;
+  font-weight: 600;
+  color: $text-color;
+  line-height: normal;
+  transition: all .3s;
+}
+.h2, h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: $text-color;
+  line-height: normal; }
+p {
+  font-size: 18px;
+  color: $text-color;
+  line-height: 160%; }
+.p1 {
+  font-size: 21px;
+  color: $text-color;}
+
+.p2 {
+  font-size: 20px;
+  color: $text-color;}
+
+.p3 {
+  font-size: 18px;
+  color: $text-color;}
+
+.p4 {
+  font-size: 16px;
+  color: $text-color;}
+
+a{
+  font-size: 18px;
+  color: $text-color;
+  transition: all .3s;
+}
+
+@import "blocks/header";
+@import "blocks/overview";
+@import "blocks/orders";
+
+
+@import "blocks/footer";
+@import "blocks/buttons";
+@import "blocks/auth";
+@import "blocks/popup";
+@import "blocks/media";
