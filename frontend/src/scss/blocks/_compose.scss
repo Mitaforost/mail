@@ -1,0 +1,58 @@
+.compose {
+  padding-top: 50px;
+  &__title {
+    display: flex;
+    text-transform: uppercase;
+    color: $primary-color;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
+.email-dropdown {
+  position: absolute;
+  top: 63px;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .email-item {
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}

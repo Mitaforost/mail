@@ -6,13 +6,18 @@
 <div class="sidebar">
     <nav class="sidebar__nav">
         <ul>
+            <li><a href="index.html" class="btn">Почта</a></li>
             <li><a href="inbox.html" class="btn">Входящие</a></li>
             <li><a href="sent.html" class="btn">Отправленные</a></li>
-            <li><a href="drafts.html" class="btn">Черновики</a></li>
-            <li><a href="trash.html" class="btn">Корзина</a></li>
-            <li><a href="favorites.html" class="btn">Избранные</a></li>
+            <li><a href="compose.html" class="btn">Написать</a></li>
         </ul>
     </nav>
+    <div class="statistics">
+        <h2 class="statistics__title">Статистика</h2>
+        <p id="userCount"></p>
+        <p id="messageCount"></p>
+        <p id="attachmentCount"></p>
+    </div>
 </div>
 <main class="main">
     <div class="container">
@@ -26,8 +31,8 @@
 <div id="logoutPopup" class="popup">
     <div class="popup__content">
         <p>Вы уверены, что хотите выйти?</p>
-        <button id="confirmLogout">Да</button>
-        <button id="cancelLogout">Отмена</button>
+        <button id="confirmLogout" class="btn">Да</button>
+        <button id="cancelLogout" class="btn">Отмена</button>
     </div>
 </div>
 @@include('html/footer.html')

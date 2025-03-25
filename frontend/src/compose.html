@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+@@include('html/head.html')
+<body>
+@@include('html/header.html')
+<div class="sidebar">
+    <nav class="sidebar__nav">
+        <ul>
+            <li><a href="index.html" class="btn">Почта</a></li>
+            <li><a href="inbox.html" class="btn">Входящие</a></li>
+            <li><a href="sent.html" class="btn">Отправленные</a></li>
+            <li><a href="compose.html" class="btn">Написать</a></li>
+        </ul>
+    </nav>
+    <div class="statistics">
+        <h2 class="statistics__title">Статистика</h2>
+        <p id="userCount"></p>
+        <p id="messageCount"></p>
+        <p id="attachmentCount"></p>
+    </div>
+</div>
+<main class="main">
+    <div class="container">
+        <section class="compose">
+            <h2 class="compose__title">Написать сообщение</h2>
+            <form id="composeForm">
+                <label for="receiverEmail">Получатель:</label>
+                <input type="email" id="receiverEmail" name="receiverEmail" required>
+                <div class="email-dropdown" id="emailDropdown"></div>
+                <label for="subject">Тема:</label>
+                <input type="text" id="subject" name="subject" required>
+                <label for="body">Сообщение:</label>
+                <textarea id="body" name="body" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </section>
+    </div>
+</main>
+<div id="logoutPopup" class="popup">
+    <div class="popup__content">
+        <p>Вы уверены, что хотите выйти?</p>
+        <button id="confirmLogout" class="btn">Да</button>
+        <button id="cancelLogout" class="btn">Отмена</button>
+    </div>
+</div>
+@@include('html/footer.html')
+<script src="js/compose.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Описание cайта">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Почтовый клиент</title>
+</head>
+
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__user">
+                <p id="userInfo" class="header__status p1"></p>
+                <button id="logoutBtn" class="btn btn__exit" style="display: none;">Выйти</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="sidebar">
+    <nav class="sidebar__nav">
+        <ul>
+            <li><a href="index.html" class="btn">Почта</a></li>
+            <li><a href="inbox.html" class="btn">Входящие</a></li>
+            <li><a href="sent.html" class="btn">Отправленные</a></li>
+            <li><a href="compose.html" class="btn">Написать</a></li>
+        </ul>
+    </nav>
+    <div class="statistics">
+        <h2 class="statistics__title">Статистика</h2>
+        <p id="userCount"></p>
+        <p id="messageCount"></p>
+        <p id="attachmentCount"></p>
+    </div>
+</div>
+<main class="main">
+    <div class="container">
+        <section class="compose">
+            <h2 class="compose__title">Написать сообщение</h2>
+            <form id="composeForm">
+                <label for="receiverEmail">Получатель:</label>
+                <input type="email" id="receiverEmail" name="receiverEmail" required>
+                <div class="email-dropdown" id="emailDropdown"></div>
+                <label for="subject">Тема:</label>
+                <input type="text" id="subject" name="subject" required>
+                <label for="body">Сообщение:</label>
+                <textarea id="body" name="body" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </section>
+    </div>
+</main>
+<div id="logoutPopup" class="popup">
+    <div class="popup__content">
+        <p>Вы уверены, что хотите выйти?</p>
+        <button id="confirmLogout" class="btn">Да</button>
+        <button id="cancelLogout" class="btn">Отмена</button>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="footer__title">Почтовый клиент</p>
+    </div>
+</footer>
+
+<script src="js/compose.js"></script>
+</body>
+</html>

@@ -12,12 +12,12 @@
 
   &__content {
     margin: 150px auto;
-    background: #fff;
+    background: $secondary-color;
     padding: 25px;
     border-radius: 10px;
     text-align: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
     h3 {
@@ -46,71 +46,35 @@
     select {
       cursor: pointer;
     }
-
-    &__actions {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-
-      button {
-        flex: 1;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        transition: 0.3s;
-
-        &:first-child {
-          background: $primary-color;
-          color: #fff;
-
-          &:hover {
-            background: darken($primary-color, 10%);
-          }
-        }
-
-        &:last-child {
-          background: #ccc;
-          color: #333;
-
-          &:hover {
-            background: darken(#ccc, 10%);
-          }
-        }
-
-        & + button {
-          margin-left: 10px;
-        }
-      }
-    }
   }
 }
 
 #logoutPopup {
   .popup__content {
     p {
-      font-size: 18px;
+      font-size: 20px;
+      text-transform: uppercase;
       margin-bottom: 20px;
     }
   }
 
   #confirmLogout {
-    background-color: #e74c3c;
+    background-color: $error-color;
     color: white;
+    width: 200px;
 
     &:hover {
-      background: darken(#e74c3c, 10%);
+      background: darken($error-color, 10%);
     }
   }
 
   #cancelLogout {
-    background-color: #888;
+    background-color: $success-color;
     color: white;
+    width: 200px;
 
     &:hover {
-      background: darken(#888, 10%);
+      background: darken($success-color, 10%);
     }
   }
 }

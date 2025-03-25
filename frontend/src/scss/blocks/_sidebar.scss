@@ -1,0 +1,28 @@
+.sidebar {
+  width: 250px;
+  background-color: $header-bg;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  color: $main-color;
+  &__nav ul {
+    padding-top: 66px;
+    list-style: none;
+    li {
+      margin-bottom: 15px;
+      a {
+        color: $main-color;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        background-color: $primary-color;
+        border-radius: 5px;
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+}

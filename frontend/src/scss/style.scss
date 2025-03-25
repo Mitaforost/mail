@@ -65,10 +65,10 @@ a{
 }
 
 @import "blocks/header";
-@import "blocks/overview";
-@import "blocks/orders";
-
-
+@import "blocks/sidebar";
+@import "blocks/messages";
+@import "blocks/statistics";
+@import "blocks/compose";
 @import "blocks/footer";
 @import "blocks/buttons";
 @import "blocks/auth";

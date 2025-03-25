@@ -1,0 +1,11 @@
+.statistics{
+  padding-top: 50px;
+  &__title{
+    color: $main-color;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  p{
+    color: $main-color;
+  }
+}
