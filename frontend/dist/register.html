@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Описание cайта">
-    <link rel="icon" href="/img/icon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/img/icon/android-chrome-512x512.png">
     <link rel="stylesheet" href="css/style.css">
-    <title>Веб-приложение аптека</title>
+    <title>Почтовый клиент</title>
 </head>
 
 <body>
-<main>
-    <section class="auth">
-        <h1 class="auth__title">Авторизация</h1>
-        <form id="registerForm" class="auth__loginForm">
-            <input type="text" id="name" placeholder="Имя" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Пароль" required>
-            <button type="submit" class="btn btn__auth">Зарегистрироваться</button>
+<main class="container">
+    <section class="auth-box">
+        <h1 class="auth-heading">Создание аккаунта</h1>
+        <form id="registerForm" class="form">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Имя" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Пароль" required>
+            </div>
+            <button type="submit" class="btn">Зарегистрироваться</button>
         </form>
-        <p>Уже есть аккаунт? <a href="login.html" class="auth__link">Войти</a></p>
+        <p class="auth-text">Уже есть аккаунт? <a href="login.html" class="auth-link">Войти</a></p>
     </section>
 </main>
+<footer class="footer">
+    <div class="container">
+        <p class="footer__title">Почтовый клиент</p>
+    </div>
+</footer>
+
 <script src="js/register.js"></script>
 </body>
 </html>

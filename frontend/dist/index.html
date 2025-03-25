@@ -4,28 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Описание cайта">
-    <link rel="icon" href="/img/icon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/img/icon/android-chrome-512x512.png">
     <link rel="stylesheet" href="css/style.css">
-    <title>Веб-приложение аптека</title>
+    <title>Почтовый клиент</title>
 </head>
 
 <body>
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
-            <a href="index.html" class="header__home">
-                <h1>Веб-приложение аптека</h1>
-            </a>
-            <nav class="header__nav">
-                <a href="orders.html">Заказы</a>
-                <a href="products.html">Товары</a>
-                <a href="customers.html">Клиенты</a>
-                <a href="payments.html">Платежи</a>
-                <a href="employees.html">Сотрудники</a>
-            </nav>
             <div class="header__user">
                 <p id="userInfo" class="header__status p1"></p>
                 <button id="logoutBtn" class="btn btn__exit" style="display: none;">Выйти</button>
@@ -34,50 +20,36 @@
     </div>
 </header>
 
-<main>
-    <section class="overview">
-        <div class="container">
-            <h2 class="overview__title">Обзор данных</h2>
-            <div class="overview__wrapper">
-                <div class="overview__item overview-item">
-                    <h3 class="overview-item__title">Товаров <span id="totalProducts">Загрузка...</span></h3>
-                    <p class="overview-item__text">Управление ассортиментом и остатками</p>
-                    <a href="products.html" class="overview-item__link btn">Перейти</a>
-                </div>
-                <div class="overview__item overview-item">
-                    <h3 class="overview-item__title">Клиентов <span id="totalCustomers">Загрузка...</span></h3>
-                    <p class="overview-item__text">Просмотр и управление клиентской базой</p>
-                    <a href="customers.html" class="overview-item__link btn">Перейти</a>
-                </div>
-                <div class="overview__item overview-item">
-                    <h3 class="overview-item__title">Заказов <span id="totalOrders">Загрузка...</span></h3>
-                    <p class="overview-item__text">Мониторинг заказов и их статусов</p>
-                    <a href="orders.html" class="overview-item__link btn">Перейти</a>
-                </div>
-                <div class="overview__item overview-item">
-                    <h3 class="overview-item__title">Платежи</h3>
-                    <p class="overview-item__text">Отслеживание поступлений и оплат</p>
-                    <a href="payments.html" class="overview-item__link btn">Перейти</a>
-                </div>
-                <div class="overview__item overview-item">
-                    <h3 class="overview-item__title">Сотрудников <span id="totalEmployees">Загрузка...</span></h3>
-                    <p class="overview-item__text">Управление персоналом аптеки</p>
-                    <a href="employees.html" class="overview-item__link btn">Перейти</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="sidebar">
+    <nav class="sidebar__nav">
+        <ul>
+            <li><a href="inbox.html" class="btn">Входящие</a></li>
+            <li><a href="sent.html" class="btn">Отправленные</a></li>
+            <li><a href="drafts.html" class="btn">Черновики</a></li>
+            <li><a href="trash.html" class="btn">Корзина</a></li>
+            <li><a href="favorites.html" class="btn">Избранные</a></li>
+        </ul>
+    </nav>
+</div>
+<main class="main">
+    <div class="container">
+        <section class="messages">
+            <h2 class="messages__title">Сообщения</h2>
+            <ul class="messages__list">
+            </ul>
+        </section>
+    </div>
 </main>
 <div id="logoutPopup" class="popup">
     <div class="popup__content">
         <p>Вы уверены, что хотите выйти?</p>
-        <button id="confirmLogout" class="btn">Да</button>
-        <button id="cancelLogout" class="btn">Отмена</button>
+        <button id="confirmLogout">Да</button>
+        <button id="cancelLogout">Отмена</button>
     </div>
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="footer__title">&copy; 2025 Веб-приложение аптека</p>
+        <p class="footer__title">Почтовый клиент</p>
     </div>
 </footer>
 

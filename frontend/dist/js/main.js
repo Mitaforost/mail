@@ -7,90 +7,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const userInfoDiv = document.getElementById("userInfo");
-    const role = user.user.role_id;
+    const mail = user.user.email;
     const username = user.user.username;
 
-    let roleText = "";
-    switch (role) {
-        case 1:
-            roleText = "Администратор";
-            break;
-        case 2:
-            roleText = "Менеджер";
-            break;
-        case 3:
-            roleText = "Кассир";
-            break;
-        case 4:
-            roleText = "Клиент";
-            break;
-        default:
-            roleText = "Неизвестная роль";
-            break;
-    }
 
-    userInfoDiv.innerHTML = `<p>${roleText} ${username}</p>`;
+    userInfoDiv.innerHTML = `<p>${username}, Почта - ${mail}</p>`;
 
-    // Ограничение доступа по ролям
-    function restrictAccess() {
-        if (role === 4) {
-            document.querySelector('a[href="employees.html"]').style.display = "none";
-            document.querySelector('a[href="customers.html"]').style.display = "none";
-            document.querySelector('a[href="orders.html"]').style.display = "none";
-
-            document.querySelector('#totalEmployees').closest('.overview__item').style.display = "none";
-            document.querySelector('#totalCustomers').closest('.overview__item').style.display = "none";
-            document.querySelector('#totalOrders').closest('.overview__item').style.display = "none";
-        } else if (role === 3) {
-            document.querySelector('a[href="payments.html"]').style.display = "none";
-        } else if (role === 2) {
-            document.querySelector('a[href="payments.html"]').style.display = "none";
-        }
-        // Убираем кнопки редактирования и добавления для клиентов и менеджеров
-        if (role !== 1) {
-            const editButtons = document.querySelectorAll('.editModeBtn');
-            const addButtons = document.querySelectorAll('.editAddBtn');
-            editButtons.forEach(button => button.style.display = 'none');
-            addButtons.forEach(button => button.style.display = 'none');
-            // document.querySelector('#buttonContainer').style.display = "none";
-        }
-    }
-
-    restrictAccess();
-
-    function loadStatistics() {
-        fetch('http://127.0.0.1:5000/statistics')
+    function loadMessages() {
+        fetch('http://127.0.0.1:5000/messages')
             .then(response => response.json())
             .then(data => {
-                if (role === 1) {
-                    document.getElementById("totalOrders").textContent = data.orderCount;
-                    document.getElementById("totalCustomers").textContent = data.userCount;
-                    document.getElementById("totalProducts").textContent = data.productCount;
-                    document.getElementById("totalEmployees").textContent = data.logCount;
-                } else if (role === 2) {
-                    document.getElementById("totalOrders").textContent = data.orderCount;
-                    document.getElementById("totalCustomers").textContent = data.userCount;
-                    document.getElementById("totalProducts").textContent = data.productCount;
-                    document.getElementById("totalEmployees").style.display = "none";
-                } else if (role === 3) {
-                    document.getElementById("totalOrders").textContent = "Доступ ограничен";
-                    document.getElementById("totalCustomers").style.display = "none";
-                    document.getElementById("totalProducts").textContent = data.productCount;
-                    document.getElementById("totalEmployees").style.display = "none";
-                } else if (role === 4) {
-                    document.getElementById("totalProducts").textContent = data.productCount;
-                }
+                const messagesList = document.querySelector('.messages__list');
+                messagesList.innerHTML = '';
+
+                data.forEach(message => {
+                    const messageItem = document.createElement('li');
+                    messageItem.innerHTML = `
+                        <h3>${message.subject}</h3>
+                        <p>${message.body}</p>
+                        <p><strong>Отправитель:</strong> ${message.sender_id}</p>
+                        <p><strong>Получатель:</strong> ${message.receiver_id}</p>
+                        <p><strong>Статус:</strong> ${message.status}</p>
+                    `;
+                    messagesList.appendChild(messageItem);
+                });
             })
-            .catch(error => console.error('Ошибка при загрузке статистики:', error));
+            .catch(error => console.error('Ошибка при загрузке сообщений:', error));
     }
 
-    loadStatistics();
+    loadMessages();
 
+    const logoutBtn = document.getElementById("logoutBtn");
     const logoutPopup = document.getElementById("logoutPopup");
     const confirmLogout = document.getElementById("confirmLogout");
     const cancelLogout = document.getElementById("cancelLogout");
 
-    const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
         logoutBtn.style.display = "inline-block";
         logoutBtn.addEventListener("click", () => {

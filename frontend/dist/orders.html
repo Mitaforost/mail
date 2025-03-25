@@ -4,28 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Описание cайта">
-    <link rel="icon" href="/img/icon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/img/icon/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/img/icon/android-chrome-512x512.png">
     <link rel="stylesheet" href="css/style.css">
-    <title>Веб-приложение аптека</title>
+    <title>Почтовый клиент</title>
 </head>
 
 <body>
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
-            <a href="index.html" class="header__home">
-                <h1>Веб-приложение аптека</h1>
-            </a>
-            <nav class="header__nav">
-                <a href="orders.html">Заказы</a>
-                <a href="products.html">Товары</a>
-                <a href="customers.html">Клиенты</a>
-                <a href="payments.html">Платежи</a>
-                <a href="employees.html">Сотрудники</a>
-            </nav>
             <div class="header__user">
                 <p id="userInfo" class="header__status p1"></p>
                 <button id="logoutBtn" class="btn btn__exit" style="display: none;">Выйти</button>
@@ -39,7 +25,8 @@
         <div class="container">
             <div class="orders__wrapper">
                 <h2 class="orders__title">Список заказов</h2>
-                <table class="table">
+                <button id="addOrderBtn" class="btn">Добавить заказ</button>
+                <table>
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -92,14 +79,21 @@
             </select>
         </label>
         <div class="popup__actions">
-            <button id="saveOrder" class="btn">Сохранить</button>
-            <button id="cancelAddOrder" class="btn">Отмена</button>
+            <button id="saveOrder">Сохранить</button>
+            <button id="cancelAddOrder">Отмена</button>
         </div>
+    </div>
+</div>
+<div id="logoutPopup" class="popup">
+    <div class="popup__content">
+        <p>Вы уверены, что хотите выйти?</p>
+        <button id="confirmLogout">Да</button>
+        <button id="cancelLogout">Отмена</button>
     </div>
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="footer__title">&copy; 2025 Веб-приложение аптека</p>
+        <p class="footer__title">Почтовый клиент</p>
     </div>
 </footer>
 
